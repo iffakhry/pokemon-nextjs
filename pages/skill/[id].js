@@ -14,7 +14,7 @@ const Pokemon = ({ pokemonName, id, url}) => (
 )
 
 export default function Home() {
-    const [areaName, setAreaName] = useState();
+    const [skillName, setSkillName] = useState("-");
     const [pokemonList, setPokemonList] = useState([]);
 
     const { query } = useRouter();
@@ -23,14 +23,14 @@ export default function Home() {
 
     useEffect(() =>{
         const getData = async()=>{
-        const response = await fetch(`https://pokeapi.co/api/v2/location-area/${id}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/ability/${id}`);
         const data = await response.json();
-        const { name, pokemon_encounters } = data;
-        setAreaName(name);
-        setPokemonList(pokemon_encounters)
+        const { name, pokemon } = data;
+        setSkillName(name);
+        setPokemonList(pokemon)
         // setPhotos(sprites.front_default);
         console.log("data ", data);
-        console.log("pokemon list ", pokemon_encounters);
+        // console.log("pokemon list ", pokemon_encounters);
         }
         if (id) {
             // handle ketika id undefined
@@ -53,7 +53,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
         {/* <Image src={photos} alt="imagepokemon" width={500} height={500}/> */}
-        <h2>{areaName}</h2>
+        <h2>{skillName}</h2>
         <ul>
           {pokemonList.map((pokemon, index) => (
             <Pokemon 

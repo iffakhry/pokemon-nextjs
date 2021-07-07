@@ -10,7 +10,7 @@ import styles from '../../styles/Home.module.css'
 // )
 
 const Pokemon = ({ pokemonName, id, url}) => (
-  <Link key={id} href={`pokemon/${id}`} passHref><p>{pokemonName}</p></Link>
+  <Link key={id} href={`pokemon/${id}`} passHref><li>{pokemonName}</li></Link>
 )
 
 export default function Home() {
@@ -57,7 +57,6 @@ export default function Home() {
         </h1>
         <ul>
         {pokemonList.map((pokemon, index) => (
-          
           <Pokemon 
             key={index} 
             pokemonName={pokemon.name}

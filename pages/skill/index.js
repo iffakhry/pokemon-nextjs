@@ -1,13 +1,22 @@
 import Head from 'next/head'
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 
-const SkillList = ({ skillName, id, onClick}) => (
-  <li onClick={()=> onClick({id,skillName})} id={id}>{skillName}</li>
+// const SkillList = ({ skillName, id, onClick}) => (
+//   <li onClick={()=> onClick({id,skillName})} id={id}>{skillName}</li>
+// )
+
+const SkillList = ({ skillName, id, url}) => (
+  <Link key={id} href={`skill/${id}`} passHref><li>{skillName}</li></Link>
 )
 
 export default function Home() {
+  const Router = useRouter();
+  console.log("Router", Router);
+  
   const [skillsList, setSkillsList] = useState ([]);
 //   const [activeIdClick, setActiveIdClick] = useState (null);
 
@@ -47,12 +56,12 @@ export default function Home() {
           Skill List
         </h1>
         <ul>
-        {skillsList.map((skill) => (
+        {skillsList.map((skill, index) => (
           <SkillList 
-            onClick={handleClick}
             key={skill.url} 
             skillName={skill.name}
-            id={skill.url}
+            id={(index+1)} 
+            url={skill.url}
           />
         )
         )

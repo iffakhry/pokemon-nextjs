@@ -31,7 +31,7 @@ const myLoader = ({ src, width, quality }) => {
 
 export default function Home() {
     const [pokemonName, setPokemonName] = useState([]);
-    const [photos, setPhotos] = useState();
+    const [photoUrl, setPhotoUrl] = useState("/vercel.svg");
 
     const { query } = useRouter();
     const id = query?.id;
@@ -43,15 +43,16 @@ export default function Home() {
         const data = await response.json();
         const { name , abilities, sprites } = data;
         setPokemonName(name);
-        setPhotos(sprites.front_default);
+        setPhotoUrl(sprites.front_default);
         console.log("data ", data);
         console.log("photo ", sprites.front_default);
+        console.log("photoUrl ", photoUrl);
         }
         if (id) {
             // handle ketika id undefined
             getData();
           }
-    }, [id, photos])
+    }, [id, photoUrl])
 
     const handleClick = (e) => {
         console.log(e);
@@ -67,8 +68,8 @@ export default function Home() {
 
     return (
         <div className={styles.container}>
-        {/* <Image src={photos} alt="imagepokemon" width={500} height={500}/> */}
-        <p>{pokemonName}</p>
+        <h3>{pokemonName}</h3>
+        <Image src={photoUrl} alt="imagepokemon" width={200} height={200}/>
 
         </div>
     )

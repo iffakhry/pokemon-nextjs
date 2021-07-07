@@ -10,7 +10,7 @@ import styles from '../../styles/Home.module.css'
 // )
 
 const AreaList = ({ areaName, id, url}) => (
-  <Link key={id} href={`area/${id}`} passHref><p>{areaName}</p></Link>
+  <Link key={id} href={`area/${id}`} passHref><li>{areaName}</li></Link>
 )
 
 export default function Home() {
