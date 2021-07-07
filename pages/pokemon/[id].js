@@ -43,9 +43,9 @@ export default function Home() {
         const data = await response.json();
         const { name , abilities, sprites } = data;
         setPokemonName(name);
-        setPhotoUrl(sprites.front_default);
+        setPhotoUrl(sprites.other.['official-artwork'].front_default);
         console.log("data ", data);
-        console.log("photo ", sprites.front_default);
+        console.log("photo ", sprites.other.['official-artwork'].front_default);
         console.log("photoUrl ", photoUrl);
         }
         if (id) {
