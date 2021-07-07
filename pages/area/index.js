@@ -56,7 +56,7 @@ export default function Home() {
           Area List
         </h1>
         <ul>
-        {areasList.map((area, index) => (
+        {areasList?.map((area, index) => (
           <AreaList 
             key={area.url} 
             areaName={area.name}

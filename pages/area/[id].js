@@ -55,7 +55,7 @@ export default function Home() {
         {/* <Image src={photos} alt="imagepokemon" width={500} height={500}/> */}
         <h2>{areaName}</h2>
         <ul>
-          {pokemonList.map((pokemon, index) => (
+          {pokemonList?.map((pokemon, index) => (
             <Pokemon 
               key={pokemon.pokemon.url} 
               pokemonName={pokemon.pokemon.name}

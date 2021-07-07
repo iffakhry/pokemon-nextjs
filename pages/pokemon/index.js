@@ -56,7 +56,7 @@ export default function Home() {
           Pokemon List
         </h1>
         <ul>
-        {pokemonList.map((pokemon, index) => (
+        {pokemonList?.map((pokemon, index) => (
           <Pokemon 
             key={index} 
             pokemonName={pokemon.name}

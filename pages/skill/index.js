@@ -16,7 +16,7 @@ const SkillList = ({ skillName, id, url}) => (
 export default function Home() {
   const Router = useRouter();
   console.log("Router", Router);
-  
+
   const [skillsList, setSkillsList] = useState ([]);
 //   const [activeIdClick, setActiveIdClick] = useState (null);
 
@@ -56,7 +56,7 @@ export default function Home() {
           Skill List
         </h1>
         <ul>
-        {skillsList.map((skill, index) => (
+        {skillsList?.map((skill, index) => (
           <SkillList 
             key={skill.url} 
             skillName={skill.name}
